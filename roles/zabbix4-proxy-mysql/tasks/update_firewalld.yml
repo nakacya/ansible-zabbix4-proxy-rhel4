@@ -1,14 +1,6 @@
 ---
 # Firewalld Change
-<<<<<<< HEAD
-#X#- firewalld: service=http  permanent=true state=enabled
-#X#- firewalld: service=https permanent=true state=enabled
 - firewalld: port=10050-10051/tcp permanent=true state=enabled
 
 - name: firewalld restart
   shell: /bin/systemctl restart firewalld
-=======
-- firewalld: service=http  permanent=true state=enabled immediate=true
-- firewalld: service=https permanent=true state=enabled immediate=true
-- firewalld: port=10050-10051/tcp permanent=true state=enabled immediate=true
->>>>>>> origin/master

@@ -1,7 +1,5 @@
 ---
 - include: install_mariadb.yml
-#X#- include: install_httpd.yml
-#X#- include: install_php.yml
 - include: install_epel.yml
 
 # Download and install ZABBIX for Centos/RHEL version 7
@@ -22,18 +20,11 @@
 - name: Import a key from a file
   rpm_key: state=present key=/tmp/RPM-GPG-KEY-ZABBIX
 
-<<<<<<< HEAD
 - name: Install zabbix-proxy
-=======
-- name: Install zabbix-server
->>>>>>> origin/master
   yum: name={{ item }} enablerepo=zabbix state=latest disable_gpg_check=no
   with_items:
     - zabbix-agent
     - zabbix-proxy
-#X#    - zabbix-server-mysql
-#X#    - zabbix-web-mysql
-#X#    - zabbix-web-japanese
 
 - name: disabled zabbix repository
   lineinfile: dest=/etc/yum.repos.d/zabbix.repo regexp='^enabled' line="enabled=0"
@@ -48,25 +39,13 @@
 - name: Importing schema file
   shell: mysql -u{{ DBUser }} -p{{ DBPassword }} {{ DBName }} -e "show tables;" | wc -l
   register: zabbixDatabaseTebles
-#X#  changed_when: False
-- debug: var=zabbixDatabaseTebles
-<<<<<<< HEAD
 - shell: zcat /usr/share/doc/zabbix-proxy-mysql-*/schema.sql.gz | mysql -u{{ DBUser }} -p{{ DBPassword }} {{ DBName }}
   when: zabbixDatabaseTebles.stdout == "0"
 
-# Setting zabbix_server.conf
+# Setting zabbix_proxy.conf
 - name: Setting zabbix_proxy.conf
   lineinfile: >-
     dest='/etc/zabbix/zabbix_proxy.conf'
-=======
-- shell: zcat /usr/share/doc/zabbix-proxy-mysql-*/create.sql.gz | mysql -u{{ DBUser }} -p{{ DBPassword }} {{ DBName }}
-  when: zabbixDatabaseTebles.stdout == "0"
-
-# Setting zabbix_server.conf
-- name: Setting zabbix_server.conf
-  lineinfile: >-
-    dest='/etc/zabbix/zabbix_server.conf'
->>>>>>> origin/master
     regexp='{{ item.regexp }}'
     insertafter='{{ item.insertafter }}'
     line='{{ item.line }}'
@@ -99,9 +78,6 @@
       insertafter: "^# Server="
       line: 'Server={{ zabbix_server }}'
 
-#X## Copy a new 'zabbix.conf.php' file into place
-#X#- template: src=zabbix.conf.php.j2 dest=/etc/zabbix/web/zabbix.conf.php owner=apache group=apache mode=0644
-#X#
 - name: start zabbix-proxt server 
   service: name=zabbix-proxy state=started enabled=yes
 
