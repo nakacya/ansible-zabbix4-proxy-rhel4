@@ -17,19 +17,6 @@ symbolic-links=0
 # If you need to run mysqld under a different user or group,
 # customize your systemd unit file for mariadb according to the
 server-id={{ DBserver_id }}
-#X#log-bin=/var/lib/mysql/log/bin/bin-log
-#X#auto_increment_increment=2
-#X#auto_increment_offset=1# instructions in http://fedoraproject.org/wiki/Systemd
-#X#replicate-ignore-table=zabbix.history
-#X#replicate-ignore-table=zabbix.history_uint
-#X#replicate-ignore-table=zabbix.history_str
-#X#replicate-ignore-table=zabbix.item_discovery
-#X#replicate-ignore-table=zabbix.sessions
-#X#replicate-ignore-table=zabbix.trends
-#X#replicate-ignore-table=zabbix.trends_uint
-#X##X#replicate-ignore-table=zabbix.media_type
-#X#replicate-ignore-table=zabbix.auditlog,zabbix.ids
-#X#binlog_format=row
 
 
 [mysqld_safe]
