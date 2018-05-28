@@ -5,5 +5,13 @@
 - name: restart zabbix-agent
   service: name=zabbix-agent state=restarted enabled=yes
 
+<<<<<<< HEAD
 - name: restart zabbix-proxy
   service: name=zabbix-proxy state=restarted enabled=yes
+=======
+- name: restart zabbix-server
+  service: name=zabbix-server state=restarted enabled=yes
+
+- name: restart httpd
+  service: name=httpd state=restarted enabled=yes
+>>>>>>> origin/master
