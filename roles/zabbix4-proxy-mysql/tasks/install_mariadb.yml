@@ -1,0 +1,13 @@
+---
+# Install and setting Mariadb
+- name: Install mariadb
+  yum: name={{ item }} state=latest
+  with_items:
+    - mariadb-server
+    - MySQL-python
+
+# Copy a new 'my.cnf' file into place
+- template: src=my.cnf.j2 dest=/etc/my.cnf owner=root group=root mode=0644
+
+- name: start mysql and enabled
+  service: name=mariadb state=started enabled=yes

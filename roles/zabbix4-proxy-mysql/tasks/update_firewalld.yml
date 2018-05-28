@@ -1,0 +1,5 @@
+---
+# Firewalld Change
+- firewalld: service=http  permanent=true state=enabled immediate=true
+- firewalld: service=https permanent=true state=enabled immediate=true
+- firewalld: port=10050-10051/tcp permanent=true state=enabled immediate=true
