@@ -23,6 +23,11 @@ DBPort: 3306
 DBSocket: /var/lib/mysql/mysql.sock
 DBserver_id: 0
 #
+# Zabbix Proxy Setting
+#
+zabbix_proxy_mode: 1
+zabbix_proxy_frequency: 60
+#
 # Zabbix Server Setting
 #
 zabbix_server: 192.168.56.101

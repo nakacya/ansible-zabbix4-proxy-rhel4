@@ -77,6 +77,12 @@
     - regexp: '^Server='
       insertafter: "^# Server="
       line: 'Server={{ zabbix_server }}'
+    - regexp: '# ProxyMode'
+      insertafter: "^# ProxyMode=0"
+      line: 'ProxyMode={{ zabbix_proxy_mode }}'
+    - regexp: '# ConfigFrequency=3600'
+      insertafter: "^# ConfigFrequency=3600"
+      line: 'ConfigFrequency={{ zabbix_proxy_frequency }}'
 
 - name: start zabbix-proxt server 
   service: name=zabbix-proxy state=started enabled=yes
