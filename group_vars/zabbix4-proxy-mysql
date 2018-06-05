@@ -25,9 +25,10 @@ DBserver_id: 0
 #
 # Zabbix Proxy Setting
 #
-zabbix_proxy_mode: 1
+zabbix_proxy_mode: 0
 zabbix_proxy_frequency: 60
 #
 # Zabbix Server Setting
 #
-zabbix_server: 192.168.56.101
+zabbix_server: 192.168.56.102
+zabbix_proxy_hostname: zabbix-proxy.jpix.ad.jp
