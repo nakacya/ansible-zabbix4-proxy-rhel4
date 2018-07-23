@@ -21,7 +21,6 @@ DBUser: zabbix
 DBPassword: PASSWORD
 DBPort: 3306
 DBSocket: /var/lib/mysql/mysql.sock
-DBserver_id: 0
 #
 # Zabbix Proxy Setting
 #
@@ -30,5 +29,5 @@ zabbix_proxy_frequency: 60
 #
 # Zabbix Server Setting
 #
-zabbix_server: 192.168.56.102
-zabbix_proxy_hostname: zabbix-proxy.jpix.ad.jp
+zabbix_server: zabbix_server_ip_address
+zabbix_proxy_hostname: zabbix-proxy_names
