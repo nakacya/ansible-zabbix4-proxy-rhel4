@@ -24,7 +24,7 @@
   yum: name={{ item }} enablerepo=zabbix state=latest disable_gpg_check=no
   with_items:
     - zabbix-agent
-    - zabbix-proxy
+    - zabbix-proxy-mysql
 
 - name: disabled zabbix repository
   lineinfile: dest=/etc/yum.repos.d/zabbix.repo regexp='^enabled' line="enabled=0"
